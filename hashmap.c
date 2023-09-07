@@ -44,8 +44,8 @@ void insertMap(HashMap * map, char * key, void * value) {
   Pair* newPair = (Pair*)malloc(sizeof(Pair));
   newPair->key = strdup(key); 
   newPair->value = value;
-  int i=0;
-  map->buckets[next(i)] = newPair;
+
+  map->buckets[3] = newPair;
   map->size++;
 }
 

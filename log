@@ -119,3 +119,9 @@ hashmap.c:48:16: error: implicit declaration of function ‘next’ [-Werror=imp
 cc1: all warnings being treated as errors
 Compilation failed
 5a5111d
+Thu 07 Sep 2023 06:31:07 PM UTC: 
+ hashmap.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+ tests:  2|5
+total_score: 20/70
+2167e12
