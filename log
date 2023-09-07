@@ -50,3 +50,16 @@ hashmap.c:43:8: error: unused variable ‘i’ [-Werror=unused-variable]
 cc1: all warnings being treated as errors
 Compilation failed
 0a8885f
+Thu 07 Sep 2023 06:04:43 PM UTC: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+hashmap.c: In function ‘insertMap’:
+hashmap.c:43:12: error: too few arguments to function ‘hash’
+   43 |   long i = hash(key)%map->capacity;
+      |            ^~~~
+hashmap.c:26:6: note: declared here
+   26 | long hash( char * key, long capacity) {
+      |      ^~~~
+Compilation failed
+f7d0281
