@@ -99,7 +99,7 @@ void eraseMap(HashMap* map, char* key) {
 
 
 Pair* searchMap(HashMap* map, char* key) {
-  long index = hash(keys) % map->capacity;
+  long index = hash(key) % map->capacity;
   map->current = index;
   Pair* current = map->buckets[index];
 
