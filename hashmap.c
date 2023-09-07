@@ -143,7 +143,7 @@ Pair* firstMap(HashMap* map) {
   if (map == NULL || map->buckets == NULL || map->capacity <= 0) {
     return NULL; // Mapa Null
   }
-  map->current = -1;
+  map->current = 1;// prueba
   return nextMap(map);
 }
 
@@ -157,4 +157,3 @@ Pair * nextMap(HashMap * map) {
   }
   return NULL;
 }
-
