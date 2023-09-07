@@ -125,18 +125,20 @@ Pair* firstMap(HashMap* map) {
   return nextMap(map);
 }
 
-Pair* nextMap(HashMap* map){
-  if(map->current < 0 || map->current >= map->capacity){
+Pair* nextMap(HashMap* map) {
+  if (map->current < 0 || map->current >= map->capacity) {
     return NULL;
   }
 
-  while (map->current < map->capacity){
+  do{
     map->current++;
+  } while (map->current < map->capacity && map->buckets[map->current] == NULL);
 
-    if(map->current < map->capacity && map->buckets[map->current] != NULL){
-      return map->buckets[map->current];
-    }
+  if (map->current < map->capacity) {
+    return map->buckets[map->current];
+  } 
+  else{
+    return NULL; 
   }
-  return NULL;
 }
 
