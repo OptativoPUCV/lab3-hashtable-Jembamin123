@@ -63,18 +63,14 @@ void insertMap(HashMap * map, char * key, void * value) {
 
 void enlarge(HashMap* map) {
   enlarge_called = 1;
-
   if(map == NULL){
     return;
   }
-
   long newCapacity = map->capacity * 2;
   Pair** newBuckets = (Pair**)malloc(sizeof(Pair*) * newCapacity);
-
   if(newBuckets == NULL){
     return;
   }
-
   for(long i = 0; i < map->capacity; i++){
     Pair* currentPair = map->buckets[i];
     if (currentPair != NULL && currentPair->key != NULL){
@@ -85,7 +81,6 @@ void enlarge(HashMap* map) {
       newBuckets[newPos] = currentPair;
     }
   }
-
   free(map->buckets);
   map->buckets = newBuckets;
   map->capacity =newCapacity;
@@ -129,16 +124,13 @@ Pair* searchMap(HashMap* map, char* key) {
   long i = hash(key,map->capacity);
   map->current = i;
   Pair* current = map->buckets[i];
-
   while(current != NULL){
     if(strcmp(current->key, key) == 0){
       map->current = i;
       return current; 
     }
-
     i = (i + 1) % map->capacity;
     current = map->buckets[i];
-
     if(i == map->current){
       break;
     }
@@ -148,8 +140,8 @@ Pair* searchMap(HashMap* map, char* key) {
 
 
 Pair* firstMap(HashMap* map) {
-  if(map == NULL || map->buckets == NULL || map->capacity <= 0){
-    return NULL; 
+  if (map == NULL || map->buckets == NULL || map->capacity <= 0) {
+    return NULL; // Mapa inválido o vacío
   }
   map->current = -1;
   return nextMap(map);
