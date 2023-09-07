@@ -236,3 +236,9 @@ hashmap.c:26:6: note: declared here
       |      ^~~~
 Compilation failed
 111128f
+Thu 07 Sep 2023 07:55:33 PM UTC: 
+ hashmap.c | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
+ tests:  11|2
+total_score: 50/70
+a7aa0ae

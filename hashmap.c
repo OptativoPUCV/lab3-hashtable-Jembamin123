@@ -99,20 +99,20 @@ void eraseMap(HashMap* map, char* key) {
 
 
 Pair* searchMap(HashMap* map, char* key) {
-  long index = hash(key) % map->capacity;
-  map->current = index;
-  Pair* current = map->buckets[index];
+  long i = hash(key,map->capacity) % map->capacity;
+  map->current = i;
+  Pair* current = map->buckets[i];
 
   while(current != NULL){
     if(strcmp(current->key, key) == 0){
-      map->current = index;
+      map->current = i;
       return current; 
     }
 
-    index = (index + 1) % map->capacity;
-    current = map->buckets[index];
+    i = (i + 1) % map->capacity;
+    current = map->buckets[i];
 
-    if(index == map->current){
+    if(i == map->current){
       break;
     }
   }
