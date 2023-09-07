@@ -120,24 +120,26 @@ Pair* searchMap(HashMap* map, char* key) {
 }
 
 
-Pair* firstMap(HashMap* map){
+Pair* firstMap(HashMap* map) {
   if(map == NULL || map->buckets == NULL || map->capacity <= 0){
     return NULL; 
   }
-  
   map->current = -1;
   return nextMap(map);
 }
 
-Pair* nextMap(HashMap* map){
-
-  while(++(map->current) < map->capacity){
-    Pair* currentPair = map->buckets[map->current];
-      if(currentPair != NULL){
-        return currentPair;
-      }
+Pair* nextMap(HashMap* map) {
+  if(map == NULL || map->buckets == NULL || map->capacity <= 0){
+    return NULL;
   }
 
-  return NULL; 
+  while (++(map->current) < map->capacity) {
+    Pair* currentPair = map->buckets[map->current];
+    if (currentPair != NULL) {
+      return currentPair;
+    }
+  }
+
+  return NULL;
 }
 
