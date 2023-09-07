@@ -79,25 +79,25 @@ HashMap * createMap(long capacity) {
   return map;
 }
 
-void eraseMap(HashMap * map,  char * key) {
-  Pair* newPair = (Pair*)malloc(sizeof(Pair));
-  newPair->key = strdup(key); 
-  
-  long i=hash(key,map->capacity); 
-  long copia=i;
+void eraseMap(HashMap* map, char* key) {
+  long i = hash(key, map->capacity);
+  long copia = i;
+
   while(1){
-    Pair* aux =map->buckets[i];
-    if(aux==NULL || aux->key==key){
+    Pair* aux = map->buckets[i];
+    if(aux == NULL || strcmp(aux->key, key) == 0){
       free(map->buckets[i]);
-      map->size--; 
+      map->size--;
+      map->buckets[i] = NULL; 
       return;
     }
-    i=(i+1)% map->capacity;
-    if (i==copia){
+    i = (i + 1) % map->capacity;
+    if(i == copia){
       return;
     }
   }
 }
+
 
 Pair * searchMap(HashMap * map,  char * key) {   
 
