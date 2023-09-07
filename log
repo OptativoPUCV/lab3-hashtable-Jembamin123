@@ -63,3 +63,14 @@ hashmap.c:26:6: note: declared here
       |      ^~~~
 Compilation failed
 f7d0281
+Thu 07 Sep 2023 06:07:19 PM UTC: 
+ hashmap.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘insertMap’:
+hashmap.c:48:16: error: assignment to ‘Pair **’ from incompatible pointer type ‘Pair *’ [-Werror=incompatible-pointer-types]
+   48 |   map->buckets = newPair;
+      |                ^
+cc1: all warnings being treated as errors
+Compilation failed
+4a14840
