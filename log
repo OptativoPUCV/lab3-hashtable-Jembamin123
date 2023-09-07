@@ -108,3 +108,14 @@ Thu 07 Sep 2023 06:26:19 PM UTC:
  tests:  2|5
 total_score: 20/70
 60197ab
+Thu 07 Sep 2023 06:30:43 PM UTC: 
+ hashmap.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘insertMap’:
+hashmap.c:48:16: error: implicit declaration of function ‘next’ [-Werror=implicit-function-declaration]
+   48 |   map->buckets[next(i)] = newPair;
+      |                ^~~~
+cc1: all warnings being treated as errors
+Compilation failed
+5a5111d
