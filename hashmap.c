@@ -125,14 +125,11 @@ Pair* firstMap(HashMap* map){
     return NULL; 
   }
   
-  map->current = -2;
+  map->current = -1;
   return nextMap(map);
 }
 
 Pair* nextMap(HashMap* map){
-  if(map == NULL || map->buckets == NULL || map->capacity <= 0){
-    return NULL;
-  }
 
   while(++(map->current) < map->capacity){
     Pair* currentPair = map->buckets[map->current];
