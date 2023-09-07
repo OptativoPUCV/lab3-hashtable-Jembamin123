@@ -63,8 +63,6 @@ void insertMap(HashMap * map, char * key, void * value) {
 
 void enlarge(HashMap * map) {
     enlarge_called = 1; //no borrar (testing purposes)
-
-
 }
 
 HashMap * createMap(long capacity) {
@@ -82,7 +80,23 @@ HashMap * createMap(long capacity) {
 }
 
 void eraseMap(HashMap * map,  char * key) {
+  Pair* newPair = (Pair*)malloc(sizeof(Pair));
+  newPair->key = strdup(key); 
   
+  long i=hash(key,map->capacity); 
+  long copia=i;
+  while(1){
+    Pair* aux =map->buckets[i];
+    if(aux==NULL || aux->key==NULL){
+      free(map->buckets[i]);
+      map->size--; 
+      return;
+    }
+    i=(i+1)% map->capacity;
+    if (i==copia){
+      return;
+    }
+  }
 }
 
 Pair * searchMap(HashMap * map,  char * key) {   
