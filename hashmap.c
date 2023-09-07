@@ -64,31 +64,31 @@ void insertMap(HashMap * map, char * key, void * value) {
 void enlarge(HashMap* map) {
   enlarge_called = 1;
 
-  if (map == NULL) {
+  if(map == NULL){
     return;
   }
 
-  long new_capacity = map->capacity * 2;
-  Pair** new_buckets = (Pair**)malloc(sizeof(Pair*) * new_capacity);
+  long newCapacity = map->capacity * 2;
+  Pair** newBuckets = (Pair**)malloc(sizeof(Pair*) * newCapacity);
 
-  if (new_buckets == NULL) {
+  if(newBuckets == NULL){
     return;
   }
 
-  for (long i = 0; i < map->capacity; i++) {
+  for(long i = 0; i < map->capacity; i++){
     Pair* currentPair = map->buckets[i];
-    if (currentPair != NULL && currentPair->key != NULL) {
-      long new_pos = hash(currentPair->key, new_capacity);
-      while (new_buckets[new_pos] != NULL) {
-        new_pos = (new_pos + 1) % new_capacity;
+    if (currentPair != NULL && currentPair->key != NULL){
+      long newPos = hash(currentPair->key, newCapacity);
+      while (newBuckets[newPos] != NULL){
+        newPos = (newPos + 1) % newCapacity;
       }
-      new_buckets[new_pos] = currentPair;
+      newBuckets[newPos] = currentPair;
     }
   }
 
   free(map->buckets);
-  map->buckets = new_buckets;
-  map->capacity = new_capacity;
+  map->buckets = newBuckets;
+  map->capacity =newCapacity;
 }
 
 
