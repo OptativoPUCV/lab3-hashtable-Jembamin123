@@ -86,3 +86,13 @@ Thu 07 Sep 2023 06:08:23 PM UTC:
  tests:  2|5
 total_score: 20/70
 a95f3a2
+Thu 07 Sep 2023 06:09:03 PM UTC: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+hashmap.c: In function ‘insertMap’:
+hashmap.c:48:15: error: array subscript is not an integer
+   48 |   map->buckets[key] = newPair;
+      |               ^
+Compilation failed
+3f4580b
