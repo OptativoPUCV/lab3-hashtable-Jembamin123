@@ -125,7 +125,7 @@ Pair* firstMap(HashMap* map){
     return NULL; 
   }
   
-  map->current = 1;
+  map->current = -2;
   return nextMap(map);
 }
 
