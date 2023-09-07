@@ -87,7 +87,7 @@ void eraseMap(HashMap * map,  char * key) {
   long copia=i;
   while(1){
     Pair* aux =map->buckets[i];
-    if(aux==NULL || aux->key==NULL){
+    if(aux==NULL || aux->key==key){
       free(map->buckets[i]);
       map->size--; 
       return;
