@@ -45,8 +45,20 @@ void insertMap(HashMap * map, char * key, void * value) {
   newPair->key = strdup(key); 
   newPair->value = value;
 
-  map->buckets[3] = newPair;
-  map->size++;
+  long i=hash(key,map->capacity); 
+  long copia=i;
+  while(1){
+    Pair* aux =map->buckets[i];
+    if(aux->key==NULL && aux==NULL){
+      map->buckets[i] = newPair;
+      map->size++; 
+      return;
+    }
+    i=(i+1)% map->capacity;
+    if (i==copia){
+      return;
+    }
+  }
 }
 
 void enlarge(HashMap * map) {
