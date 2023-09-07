@@ -205,3 +205,21 @@ Thu 07 Sep 2023 07:41:04 PM UTC:
  tests:  8|3
 total_score: 40/70
 72bf52b
+Thu 07 Sep 2023 07:54:23 PM UTC: 
+ hashmap.c | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
+In file included from test.c:4:
+hashmap.c: In function ‘searchMap’:
+hashmap.c:102:21: error: ‘keys’ undeclared (first use in this function); did you mean ‘key’?
+  102 |   long index = hash(keys) % map->capacity;
+      |                     ^~~~
+      |                     key
+hashmap.c:102:21: note: each undeclared identifier is reported only once for each function it appears in
+hashmap.c:102:16: error: too few arguments to function ‘hash’
+  102 |   long index = hash(keys) % map->capacity;
+      |                ^~~~
+hashmap.c:26:6: note: declared here
+   26 | long hash( char * key, long capacity) {
+      |      ^~~~
+Compilation failed
+b3566cf
